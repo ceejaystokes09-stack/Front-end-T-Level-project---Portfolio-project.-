@@ -1,0 +1,576 @@
+/* Added a google font, still readable and will have change the font 
+on all the pages, to stay consistent */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
+
+*{
+    /* This changes all the elements */
+    box-sizing: border-box;
+    font-size: 1.1em;
+    line-height: 1.3em; /* Makes the text more readable */
+    font-family: 'Audiowide', cursive, sans-serif;
+
+}
+
+:root{
+    --bg: #F4F7F5;
+    --surface: #FFFFFF;
+    --surface-strong: #18332C;
+    --text: #182923;
+    --text-muted: #5C6F67;
+    --primary: #147D64;
+    --primary-hover: #0E6652;
+    --accent: #D99A24;
+    --border: #D8E2DC;
+    --success: #21845A;
+    --danger: #C44E42;
+}
+
+
+body{
+    background-color: var(--surface);
+    margin: 0;
+    padding: 100px 16px 80px;
+    min-height: 100vh;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.centerX-col,
+.centerX{
+    display: flex;
+    align-items: center;
+
+}
+.centerY-col,
+.centerY{
+    display: flex;
+    justify-content: center;
+}
+.centerY-col,
+.centerX-col{
+    flex-direction: column;
+}
+
+.start{
+    display: flex;
+    align-items: start;
+}
+
+.space-around{
+    display: flex;
+    justify-content: space-around;
+}
+.space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+.col{
+    flex-direction: column;
+}
+
+.space-between{
+    display:flex;
+    justify-content: space-between;
+}
+
+img,
+iframe,
+svg,
+video{
+    max-width: 100%;
+    height: auto;
+}
+
+.text-outline{
+    -webkit-text-stroke: 2px black;
+}
+
+.gradient-text{
+    background-clip: text;
+    -webkit-background-clip: text; 
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.border-gradient-round{
+    /*add a background image of 2 values usually 2 graidents */
+    border-radius: 1em;
+    background-clip: padding-box, border-box !important;
+    background-origin: padding-box, border-box !important;
+}
+
+.rounded-right-only{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+i{
+    cursor: pointer;
+}
+
+.pad-4{
+    padding:1em;
+}
+
+a.active{
+    color: rgb(14, 128, 204) !important ;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: 1px 2px 37px -4px rgba(0,0,0,0.64) inset;
+    -webkit-box-shadow: 1px 2px 37px -4px rgba(0,0,0,0.64) inset;
+    -moz-box-shadow: 1px 2px 37px -4px rgba(0,0,0,0.64) inset;
+    border-radius: 1em;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background-color: #5c5a5a;
+    border-radius: 1em;
+}
+
+
+
+/*
+=========================
+Top nav
+===========================
+*/
+.top-nav{
+    padding-left:10px;
+    padding-right: 10px;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 999;
+    width:100vw;
+    height:83px;
+    box-shadow: 3px 0px 18px -1px rgba(61,8,8,0.81);
+    -webkit-box-shadow: 3px 0px 18px -1px rgba(61,8,8,0.81);
+    -moz-box-shadow: 3px 0px 18px -1px rgba(61,8,8,0.81);
+    background: rgb(252, 252, 252);
+    color: black;
+    font-size: x-large;
+
+}
+
+.top-nav .burger{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+
+.top-nav i{
+    transition: all ease 0.3s;
+}
+
+.top-nav i:hover{
+    scale: 1.1;
+    color: rgb(58, 57, 57) ;
+}
+
+.top-nav a{
+    color: rgb(107, 105, 107);
+    transition: all 0.3s ease;
+}
+.top-nav .fa-github{
+    color: black;
+    text-decoration: none;
+    opacity: 1;
+}
+
+.top-nav a:hover{
+    color: rgb(95, 94, 95);
+    scale:1.1;
+}
+
+.top-nav div{
+    display: flex;
+    justify-content: space-evenly;
+    gap:10px;
+    
+}
+
+.top-nav i[aria-disabled="true"]{
+    display:none;
+}
+
+.top-nav .mega-close{
+    display: none;
+}
+
+.toggle-header{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 500px){
+    .top-nav a{
+        display: none;
+    }
+
+    .top-nav .cut{
+        display: none;
+    }
+
+    .top-nav .burger{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .top-nav .burger[aria-disabled="true"],
+    .top-nav .mega-close[aria-disabled="true"]{
+        display: none;
+    }
+
+    .top-nav .mega-close[aria-disabled="false"]{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .top-nav .search{
+        width: 200px;
+        top:100%;
+    }
+
+    .toggle-header{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+.double-header-mega{
+    position: absolute;
+    background: linear-gradient(#3f3e3e,#3f3e3e), linear-gradient(25deg,
+    rgba(75, 29, 29, 0.877), rgb(87, 1, 1), rgb(37, 0, 0));
+    border: 2px solid transparent;
+    color: white;
+    width:100%;
+    height:50px;
+    top:100%;
+    z-index: -1;
+    transform: translateY(-125%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: smaller;
+
+}
+
+.double-header-mega.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.double-header-mega a{
+    display: inline-block;
+    color: inherit;
+}
+
+.double-header-mega .cut{
+    display: block;
+}
+.double-header-mega a:hover,
+.double-header-mega i:hover{
+    color: rgb(177, 166, 166);
+}
+
+/* Main page  */
+main{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--surface);
+    border: var(--border) solid 2px;
+    border-radius: 1em;
+    margin: 5px auto;
+    padding: 20px 12px;
+    gap: 24px;
+    max-width: 1200px;
+}
+
+main div{
+    border: solid 2px #726f6f;
+    border-radius: 10px;
+    /* box shadow was generated on this website -> https://cssgenerator.org/box-shadow-css-generator.html */
+    box-shadow: 0px 1px 24px 2px rgba(119, 232, 252, 0.94);
+    -webkit-box-shadow: 0px 1px 24px 2px rgba(119, 232, 252, 0.94);
+    -moz-box-shadow: 0px 1px 24px 2px rgba(119, 232, 252, 0.94);
+    width: min(80%, 1000px);
+    flex: 1 1 300px;
+    margin: 0 auto;
+}
+
+main div:empty{
+    border: none;
+    border-radius: 999px; /* creates a perfect circular shape / pill depending on x and Y */
+    background: linear-gradient(90deg, transparent, rgba(20, 125, 100, 0.8), transparent);
+    box-shadow: none;
+    width: min(80%, 500px);
+    max-width: 90%;
+    min-height: 4px;
+    height: 4px;
+    flex-basis: 100%;
+    margin: 4px auto;
+}
+
+main .tech-card {
+    width: min(80%, 1000px);
+}
+
+main .tech-content{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 14px 18px;
+}
+
+main .tech-list,
+main .tech-image{
+    width: 50%;
+}
+
+main .tech-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .tech-image img{
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    border: 3px solid #147D64;
+    border-radius: 14px;
+    background: #f6fbfa;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(20, 125, 100, 0.12);
+}
+
+main h1{
+    text-align: center;
+    font-size: clamp(1.3rem, 2vw, 2.2rem);
+    text-decoration: underline;
+}
+
+table{
+    text-align: center;
+    border:solid 1px black;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+}
+td{
+    border: solid 0.5px black;
+    width: 50%;
+    padding: 10px 8px;
+    vertical-align: top;
+}
+
+ul{
+    margin: 5px;
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+}
+
+a{
+    color: rgb(230, 52, 8);
+}
+
+::selection{
+    background-color: #a3f0dd;
+    color: rgb(171, 7, 185);
+}
+
+/* ===========================
+FOOTER CODE 
+============================== */
+
+footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    background-color: rgb(31, 29, 29);
+    height: 60px;
+    width: 100vw;
+    color: rgb(226, 223, 223);
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 12px;
+}
+
+@media (max-width: 900px){
+    .top-nav{
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .top-nav > div:nth-child(2){
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main{
+        padding: 18px 10px;
+    }
+
+    main div{
+        width: min(80%, 700px);
+        min-width: 0;
+        margin: 0 auto;
+    }
+
+    main div:empty{
+        width: min(100%, 500px);
+        max-width: 100%;
+        margin: 8px auto;
+    }
+}
+
+@media (max-width: 650px){
+    main .tech-content{
+        display: block;
+    }
+
+    main .tech-list,
+    main .tech-image{
+        width: 100%;
+    }
+
+    main .tech-image{
+        display: none;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    td{
+        display: block;
+        width: 100%;
+    }
+    thead {
+        display: none;
+    }
+
+    tbody td{
+        border-left: none;
+        border-right: none;
+    }
+}
+
+@media (max-width: 500px){
+    body{
+        padding-top: 90px;
+    }
+
+    .top-nav{
+        height: auto;
+        min-height: 83px;
+        align-items: center;
+    }
+
+    .top-nav a{
+        display: none;
+    }
+
+    .top-nav .cut{
+        display: none;
+    }
+
+    .top-nav .burger{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .top-nav .burger[aria-disabled="true"],
+    .top-nav .mega-close[aria-disabled="true"]{
+        display: none;
+    }
+
+    .top-nav .mega-close[aria-disabled="false"]{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .top-nav .search{
+        width: 200px;
+        top:100%;
+    }
+
+    .toggle-header{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    main{
+        margin: 0 auto;
+        padding: 16px 8px;
+    }
+
+    main div{
+        width: min(80%, 300px);
+        margin: 0 auto;
+    }
+
+    main div:empty{
+        width: min(100%, 500px);
+        max-width: 100%;
+        min-height: 3px;
+        height: 3px;
+        margin: 6px auto;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    td{
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody td{
+        border-left: none;
+        border-right: none;
+    }
+
+    footer {
+        font-size: 0.65rem;
+        height: 52px;
+    }
+}
